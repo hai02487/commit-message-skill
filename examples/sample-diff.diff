@@ -1,0 +1,17 @@
+diff --git a/src/auth/tokens.py b/src/auth/tokens.py
+--- a/src/auth/tokens.py
++++ b/src/auth/tokens.py
+@@ -41,7 +41,7 @@ def validate(token):
+     if token is None:
+         return False
+     if token.is_expired():
+-        return refresh(token)
++        return False
+     return True
+diff --git a/src/api/users.py b/src/api/users.py
+--- a/src/api/users.py
++++ b/src/api/users.py
+@@ -12,7 +12,7 @@
+-def list_users(limit=50):
++def list_customers(limit=50):
+     return query_customers(limit=limit)
